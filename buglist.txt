@@ -1,0 +1,10 @@
+BUGS:
+
+
+
+TODO:
+- a help section
+- settings
+- import new entry
+- check that codebook is actually a codebook
+- resizable

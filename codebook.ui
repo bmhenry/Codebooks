@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>990</width>
+    <height>694</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CodeBook</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="tagsLabel">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>20</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tags:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="codebookLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Codebooks:</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="cookbookTabs">
+    <property name="geometry">
+     <rect>
+      <x>16</x>
+      <y>59</y>
+      <width>191</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="Cookbook1">
+     <attribute name="title">
+      <string>Cookbook1</string>
+     </attribute>
+     <widget class="QListView" name="Cookbook1FileList">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>191</width>
+        <height>561</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPlainTextEdit" name="tagEditor">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>20</y>
+      <width>471</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>IBeamCursor</cursorShape>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>&lt;no tags&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="entryName">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>20</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>No File Selected</string>
+    </property>
+   </widget>
+   <widget class="Line" name="tagspacer">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>10</y>
+      <width>20</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="entryTabs">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>60</y>
+      <width>741</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="descriptionTab">
+     <attribute name="title">
+      <string>Description</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="plainTextEdit">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>741</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>854</x>
+      <y>630</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Get Code...</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>990</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew_File"/>
+    <addaction name="actionOpen_File"/>
+    <addaction name="actionSave_File"/>
+    <addaction name="actionSave_File_As"/>
+   </widget>
+   <widget class="QMenu" name="menuCode">
+    <property name="title">
+     <string>Code</string>
+    </property>
+    <addaction name="actionNew_Code_Entry"/>
+    <addaction name="actionOpen_Code_Entry"/>
+    <addaction name="actionSave_Code_Entry"/>
+    <addaction name="actionSave_Entry_As"/>
+   </widget>
+   <widget class="QMenu" name="menuCodebooks">
+    <property name="title">
+     <string>Codebooks</string>
+    </property>
+    <addaction name="actionNew_Codebook"/>
+    <addaction name="actionOpen_Codebook"/>
+    <addaction name="actionRemove_Codebook"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuCodebooks"/>
+   <addaction name="menuCode"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew_File">
+   <property name="text">
+    <string>New File</string>
+   </property>
+  </action>
+  <action name="actionOpen_File">
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionSave_File">
+   <property name="text">
+    <string>Save File</string>
+   </property>
+  </action>
+  <action name="actionSave_File_As">
+   <property name="text">
+    <string>Save File As...</string>
+   </property>
+  </action>
+  <action name="actionNew_Code_Entry">
+   <property name="text">
+    <string>New Code Entry</string>
+   </property>
+  </action>
+  <action name="actionOpen_Code_Entry">
+   <property name="text">
+    <string>Open Code Entry</string>
+   </property>
+  </action>
+  <action name="actionSave_Code_Entry">
+   <property name="text">
+    <string>Save Entry</string>
+   </property>
+  </action>
+  <action name="actionSave_Entry_As">
+   <property name="text">
+    <string>Save Entry As...</string>
+   </property>
+  </action>
+  <action name="actionNew_Codebook">
+   <property name="text">
+    <string>New Codebook</string>
+   </property>
+  </action>
+  <action name="actionOpen_Codebook">
+   <property name="text">
+    <string>Open Codebook</string>
+   </property>
+  </action>
+  <action name="actionRemove_Codebook">
+   <property name="text">
+    <string>Remove...</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
