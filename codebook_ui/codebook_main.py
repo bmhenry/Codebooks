@@ -920,24 +920,24 @@ class CodebooksMainWindow(CodebooksMainUi):
             entry_tags = parse_description(fileloc = description_dir, tagsOnly = True)
 
             if entry_tags is not None:
-                search_tags = [tag.strip() for tag in tagString.split(',')]
+                search_tags = [tag.strip().lower() for tag in tagString.split(',')]
 
                 tags_found = True
 
                 if tagString.strip() is not '':  # skip the comparing if the tagString is empty
                     for tag in search_tags:
-                        if tag in entry_tags:
+                        if tag in entry_tags.lower():
                             pass
                         else:
                             tags_found = False
                             break
 
-                    if entry_name in search_tags:
+                    if all([tag in entry_name.lower() for tag in search_tags]):
                         tags_found = True
 
                 if tags_found:
                     container = QtWidgets.QListWidgetItem(parent = codebookEntries)
-                    entryItem = CBlistEntryItem(name = entry, tagString = entry_tags)
+                    entryItem = CBlistEntryItem(name = entry_name, tagString = entry_tags)
 
                     container.setSizeHint(entryItem.sizeHint())  # turns out this is necessary
 
