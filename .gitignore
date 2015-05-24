@@ -1,4 +1,12 @@
 #################
+## Codebooks
+#################
+#*.cbs
+__pycache__/
+*/__pycache__/
+
+
+#################
 ## Eclipse
 #################
 
@@ -189,8 +197,7 @@ $RECYCLE.BIN/
 #############
 
 *.py[cod]
-__pycache__/
-*/__pycache__/
+
 
 # Packages
 *.egg
