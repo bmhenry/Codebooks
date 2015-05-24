@@ -8,3 +8,4 @@ TODO:
 - import new entry
 - check that codebook is actually a codebook
 - resizable
+- commas to require all tags, semicolons to separate any of
