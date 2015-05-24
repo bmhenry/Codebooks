@@ -31,7 +31,10 @@ class CodebooksMainWindow(CodebooksMainUi):
         # open the codebooks that were left open in previous session
         if 'open_codebooks' in self.settings.keys():
             for codebook in self.settings['open_codebooks'].copy():
-                self.openCodebook(self.settings['codebooks'][codebook], startup = True)
+                if codebook in self.settings['codebooks'].keys():
+                    self.openCodebook(self.settings['codebooks'][codebook], startup = True)
+                else:
+                    self.settings['open_codebooks'].remove(codebook)
 
         # focus the codebook that was selected in the last session
         if 'focused_codebook' in self.settings.keys():
@@ -40,11 +43,12 @@ class CodebooksMainWindow(CodebooksMainUi):
                 self.codebookTabs.setCurrentIndex(lsc)
 
         # focus the entry that was selected in the last session
-        if 'open_entry' in self.settings.keys():
+        if 'open_entry' in self.settings.keys() and self.settings['open_entry'] is not None:
             lse = self.settings['open_entry']
             if lse > -1:
                 codebookEntries = self.getCodebookEntries()  # get codebookEntries widget
-                codebookEntries.setCurrentRow(lse)
+                if codebookEntries:  # return False if no entries
+                    codebookEntries.setCurrentRow(lse)
 
         pass
 
@@ -402,6 +406,9 @@ class CodebooksMainWindow(CodebooksMainUi):
             cb_dir, cb_name = existing_codebook
         else:
             return
+
+        if cb_name not in self.settings['codebooks'].keys():
+            self.settings['codebooks'][cb_name] = cb_dir
 
         # check if the codebook is already open
         if not startup:

@@ -1,9 +1,9 @@
 #################
 ## Codebooks
 #################
-#*.cbs
-__pycache__/
-*/__pycache__/
+__pycache__
+settings.cbs
+buglist.txt
 
 
 #################
