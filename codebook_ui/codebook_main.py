@@ -272,7 +272,8 @@ class CodebooksMainWindow(CodebooksMainUi):
         fileEdit = QtWidgets.QPlainTextEdit(fileTab)
         fileEdit.setGeometry(QtCore.QRect(0,30,737,507))
         fileEdit.setObjectName("fileEdit")
-        fileEdit.setWordWrapMode(QtGui.QTextOption.NoWrap)
+        fileEdit.setLineWrapMode(QtWidgets.QPlainTextEdit.WidgetWidth)
+        #fileEdit.setWordWrapMode(QtGui.QTextOption.NoWrap)
         fileEdit.textChanged.connect(self.entryModified)
 
         # fill the editor with filetext
@@ -767,7 +768,6 @@ class CodebooksMainWindow(CodebooksMainUi):
 
                 file_save(new_dir, tab.findChild(QtWidgets.QPlainTextEdit, "fileEdit").toPlainText())
                 self.entryTabs.setTabText(tab_index, new_dir.split('/')[-1])
-                self.savedStatus.setText('Entry saved')
             pass
 
         # reset variables
@@ -777,6 +777,7 @@ class CodebooksMainWindow(CodebooksMainUi):
 
         # set saved status
         self.entrySaved = True
+        self.savedStatus.setText('Entry saved')
 
         pass
 

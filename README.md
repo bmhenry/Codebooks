@@ -1,6 +1,3 @@
-Codebooks
-Copyright (c) 2015 Brandon Henry
-
 ###Codebooks
 When I write code, it ends up in any one of a million different directories. Sure, I have folders that 'organize' my code, but these often end up pretty clustered anyways. When I write something clever (which happens far too rarely), I usually can't find it because it's in a module within a package within a folder within another folder... you've been there.
 
@@ -16,3 +13,8 @@ Speaking of copy & paste, what if you have some existing code in a folder, and w
 
 ####Runtime
 To run the program, double-click codebooks.pyw or run it from the command line with 'python codebooks.pyw' .
+
+
+
+Copyright (c) 2015 Brandon Henry
+Licensed under the MIT License
