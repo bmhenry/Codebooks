@@ -940,7 +940,6 @@ class CodebooksMainWindow(CodebooksMainUi):
                             tags_found = False
                             break
 
-                    print(tagString.lower(), ' ', entry_name.lower())
                     if tagString.lower() in entry_name.lower():
                         tags_found = True
 
