@@ -8,6 +8,7 @@ from codebook_fileops.settingsops import *
 # idea: import code button for a new entry
 
 class CodebooksMainWindow(CodebooksMainUi):
+    """Implements the UI for the main window"""
 
     def __init__(self, mainfile_dir):
         self.main_dir = mainfile_dir  # directory program is running from
@@ -586,6 +587,12 @@ class CodebooksMainWindow(CodebooksMainUi):
         self.entryName.setText('(new entry)')
 
         self.savedStatus.setText('New entry')
+        pass
+
+
+    def importEntry(self):
+        """Let's the user select a folder to import a code entry from"""
+
         pass
 
 

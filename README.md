@@ -17,8 +17,4 @@ To run the program, double-click codebooks.pyw or run it from the command line w
 
 
 Copyright (c) 2015 Brandon Henry
-<<<<<<< HEAD
 Licensed under the MIT License
-=======
-Licensed under the MIT License
->>>>>>> a389e17a55c88daade27b7f450c4d8141307cb6a
