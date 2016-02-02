@@ -17,8 +17,13 @@ def getSettings(mainfile_dir):
 
 
 def getDefaultSettings():
-    with open('./codebook_fileops/default_settings.cbs') as defaults:
-        return json.load(defaults)
+    defaults = '{\
+                    "codebooks":{},\
+                    "open_codebooks":[],\
+                    "focused_codebook":-1,\
+                    "open_entry":-1\
+                }'
+    return json.loads(defaults)
 
 
 def save_settings(mainfile_dir, settingsDict):

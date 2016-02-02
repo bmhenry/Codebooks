@@ -120,7 +120,7 @@ class CodebooksMainWindow(CodebooksMainUi):
     def newFile(self):
         """Add a single new tab to the entry panel"""
 
-        self.addFileTab("(new file)", "")
+        self.addFileTab(fileName = "(new file)")
         pass
 
 
@@ -131,7 +131,7 @@ class CodebooksMainWindow(CodebooksMainUi):
         if response is not None:
             filename = response[0]
 
-            self.addFileTab(filename,filetext)
+            self.addFileTab(fileName = filename, fileText = filetext)
         pass
 
 
@@ -223,7 +223,7 @@ class CodebooksMainWindow(CodebooksMainUi):
 
     # ENTRY TAB FUNCTIONS ########################################################################
 
-    def addFileTab(self, fileName = 'newfile.txt', fileText = '', autofocus = True, directory = None):
+    def addFileTab(self, *, fileName = 'newfile.txt', fileText = '', autofocus = True, directory = None):
         """Adds a file to the entry tabs given optional inputs of the file's name and text"""
 
         # Add UI element:
@@ -556,7 +556,7 @@ class CodebooksMainWindow(CodebooksMainUi):
         pass
     
 
-    def newEntry(self):
+    def newEntry(self, *, default = True):
         """Clears the current entry from entryTabs and adds a new one"""
 
         if self.codebookTabs.currentIndex() < 0:
@@ -575,7 +575,8 @@ class CodebooksMainWindow(CodebooksMainUi):
 
         # add description tab and a single new file
         self.addDescriptionTab('description.txt')
-        self.addFileTab(autofocus = False)
+        if default:
+            self.addFileTab(autofocus = False)
 
         # set class variables
         self.isNewEntry = True
@@ -592,6 +593,25 @@ class CodebooksMainWindow(CodebooksMainUi):
 
     def importEntry(self):
         """Let's the user select a folder to import a code entry from"""
+
+        dirname, entry_name = import_folder()
+
+        # attempt to create a new entry (auto checks to close current entries)
+        self.newEntry(default = False)
+
+        # set name of entry
+        self.entryName.setText(entry_name)
+
+        # get each file and save it
+        for folder in os.walk(dirname):
+            for code_file in folder[2]:
+                with open(folder[0] + '\\' + code_file) as f:
+                    new_text = f.read()
+                    self.addFileTab(fileName = code_file, fileText = new_text)
+
+
+        # notify them that their directory structure has been preserved
+        self.alert("Your directory structure has been preserved.")
 
         pass
 
@@ -728,6 +748,8 @@ class CodebooksMainWindow(CodebooksMainUi):
         # Call save on each file in directory self.currentEntry
         for tab_index in range(self.entryTabs.count()):
             tab = self.entryTabs.widget(tab_index)
+
+            # save the description.txt file
             if tab_index == 0:
                 # change name of entry if it was modified
                 if self.entryRenamed and not self.isNewEntry:
@@ -766,7 +788,7 @@ class CodebooksMainWindow(CodebooksMainUi):
                             os.rename(tab.directory, new_dir)
                             tab.directory = new_dir
                         except Exception as e:
-                            print('Error saving entry (saveEntry): ',e)
+                            print('Error saving entry (saveEntry): ', e)
                             self.alert("Couldn't save file. Is it opened in another editor?")
                             return
                     codebookEntries = self.getCodebookEntries()

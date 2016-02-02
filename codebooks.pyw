@@ -1,6 +1,8 @@
 import sys
 from codebook_ui.codebook_main import *
 
+"""Runs the Codebooks program"""
+
 def main():
     print('Starting...')
 

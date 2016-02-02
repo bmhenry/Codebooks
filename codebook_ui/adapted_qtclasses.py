@@ -2,15 +2,16 @@
 from PyQt5 import QtWidgets, QtGui
 
 class CBfilewidget(QtWidgets.QWidget):
-    def __init__(self, directory = None, parent = None):
+    def __init__(self, parent = None, *, directory = None, subfolder = None):
         super().__init__(parent)
         self.entryName = None
         self.entryTags = None
+        self.subfolder = subfolder
         self.directory = directory
         
 
 class CBlistEntryItem(QtWidgets.QWidget):
-    def __init__(self, name = '', tagString = '', parent = None):
+    def __init__(self, parent = None, *, name = '', tagString = ''):
         super().__init__(parent)
         self.verticalLayout = QtWidgets.QVBoxLayout()
 

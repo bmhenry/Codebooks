@@ -28,7 +28,7 @@ class CodebooksMainUi(QtWidgets.QMainWindow):
         # Main window and widget setup
         self.setObjectName("MainWindow")
         #self.resize(990, 694)
-        self.setFixedSize(990, 694)  # not resizable, for nwo
+        self.setFixedSize(990, 694)  # not resizable, for now
 
         # create central widget
         self.centralwidget = QtWidgets.QWidget()

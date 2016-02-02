@@ -3,6 +3,16 @@ from codebook_fileops.settingsops import *
 import os
 import shutil
 
+# directory operations
+def forcedir(dir_path):
+    """Makes sure that a directory exists"""
+    subdirs = dir_path.strip().split('/')
+    for path in range(len(subdirs)):
+        new_path = '/'.join(subdirs[0:path])
+        if not os.path.isdir(new_path):
+            os.mkdir(new_path)
+    pass
+
 # single file operations
 def file_open():
     # get filename and show only .pdt files
@@ -52,14 +62,27 @@ def open_codebook(dirname = None):
     # get directory location to open an existing codebook\
     if dirname == False or dirname == None:
         dirname = QtWidgets.QFileDialog.getExistingDirectory(None, 'Create or Select Codebook Folder', 
-                    'NewCodebook', options = QtWidgets.QFileDialog.ShowDirsOnly)
+                    '', options = QtWidgets.QFileDialog.ShowDirsOnly)
 
     if dirname != '':
         #TODO: check that there's a valid .cdb file to indicate that the folder is actually a codebook
         cb_name = dirname.split('/')[-1]
         return (dirname, cb_name)
     else:
-        return None
+        return (None, None)
+
+def import_folder():
+    """Gets directory location to import code in an existing folder as an entry"""
+    dirname = QtWidgets.QFileDialog.getExistingDirectory(None, 'Choose Existing Code to Import as Entry',
+                    '/', options = QtWidgets.QFileDialog.ShowDirsOnly)
+
+    print(dirname)
+
+    if dirname != '':
+        return (dirname, dirname.split('/')[-1])
+    else:
+        return (None, None)
+
 
 
 def getCodebookData(cb_dir):
