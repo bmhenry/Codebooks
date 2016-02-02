@@ -15,7 +15,7 @@ Speaking of copy & paste, what if you have some existing code in a folder, and w
 Codebooks requires Python3 and PyQt5 in order to run.
 
 ### Runtime
-To run the program, double-click codebooks.pyw or run it from the command line with 'python codebooks.pyw' . Alternatively, if an executable has been supplied for your operating system you can simply use that. The executables were created using Pyinstaller.
+To run the program, double-click codebooks.pyw or run it from the command line with 'python codebooks.pyw' . Alternatively, if an executable has been supplied for your operating system (if so, it will be in the 'bin' folder) you can simply use that. The executables were created using Pyinstaller.
 
 
 
